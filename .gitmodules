@@ -1,0 +1,15 @@
+[submodule "lib/jQuery"]
+	path = lib/jQuery
+	url = https://gist.github.com/6035232.git
+[submodule "lib/Class"]
+	path = lib/Class
+	url = https://gist.github.com/6034750.git
+[submodule "lib/markdown"]
+	path = lib/markdown
+	url = https://github.com/evilstreak/markdown-js.git
+[submodule "lib/less"]
+	path = lib/less
+	url = https://github.com/less/less.js/
+[submodule "lib/Handlebars"]
+	path = lib/Handlebars
+	url = https://github.com/wycats/handlebars.js.git
