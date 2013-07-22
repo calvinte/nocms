@@ -1,7 +1,7 @@
 define(
   [
-    'lib/Class/Class.js',
-    'lib/markdown/lib/markdown.js',
+    'lib/Class/Class',
+    'lib/markdown/lib/markdown',
   ],
   function(Class) {
     return Class.extend({

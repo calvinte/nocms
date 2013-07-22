@@ -1,7 +1,7 @@
 define(
   [
-    'lib/Class/Class.js',
-    'lib/Handlebars/dist/handlebars.js'
+    'lib/Class/Class',
+    'lib/Handlebars/dist/handlebars'
   ],
   function(Class, Handlebars) {
     return Class.extend({

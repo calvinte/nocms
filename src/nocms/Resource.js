@@ -1,6 +1,6 @@
 define(
   [
-    'lib/Class/Class.js',
+    'lib/Class/Class',
   ],
   function(Class) {
     return Class.extend({

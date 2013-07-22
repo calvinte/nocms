@@ -1,6 +1,6 @@
 define(
   [
-    'lib/Class/Class.js',
+    'lib/Class/Class',
     'src/nocms/Model',
     'src/nocms/View',
   ],

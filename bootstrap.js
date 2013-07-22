@@ -1,8 +1,5 @@
-var NoCMS = NoCMS || {};
 (function() {
-  var XHR;
-
-  XHR = new XMLHttpRequest();
+  var XHR = new XMLHttpRequest();
   XHR.addEventListener('load', function() {
     var i;
     this.includes = JSON.parse(event.target.response);
@@ -35,10 +32,10 @@ var NoCMS = NoCMS || {};
     getAsyncFile(path, 'link', 'href', 'text/css', 'stylesheet/less');
   }
   function getAsyncHbs(path) {
-    getAsyncFile(path, 'script', 'src', 'text/template');
+    getAsyncFile(path, 'script', 'src', 'text/x-handlebars-template');
   }
   function getAsyncMd(path) {
     getAsyncFile(path, 'script', 'src', 'text/markdown');
   }
-}).call(NoCMS);
+})();
 

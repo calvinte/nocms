@@ -4,7 +4,7 @@ define(
     'src/nocms/Model',
     'src/nocms/View',
     'src/nocms/Controller',
-    'lib/jQuery/jquery-2.0.3.js'
+    'lib/jQuery/jquery-2.0.3'
   ],
   function(Resource, Model, View, Controller, $) {
     var demo = new (Controller.extend({
