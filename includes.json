@@ -1,24 +1,25 @@
 {
-  "core": {
-    "JS": [
+  "nocms": {
+    "js": [
       "lib/Class/Class.js",
       "lib/Handlebars/dist/handlebars.js",
       "lib/less/dist/less-1.4.1.js",
       "lib/markdown/lib/markdown.js",
       "lib/jQuery/jquery-2.0.3.js",
-      "src/nocms/Resource.js"
+      "src/nocms/Resource.js",
+      "src/nocms/Model.js",
+      "src/nocms/View.js",
+      "src/nocms/Controller.js"
     ],
-    "LESS": [],
-    "Hbs": [],
-    "Md": []
+    "less": [],
+    "hbs": [],
+    "md": []
   },
   "demo": {
-    "JS": [],
-    "LESS": [],
-    "Hbs": [],
-    "Md": [
-      "src/demo/demo.md"
-    ]
+    "js": ["src/demo/demo.js"],
+    "less": ["src/demo/demo.less"],
+    "hbs": ["src/demo/demo.hbs"],
+    "md": ["src/demo/demo.md"]
   }
 }
 

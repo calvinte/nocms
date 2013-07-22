@@ -6,6 +6,9 @@ NoCMS.Resource = Class.extend({
    * @param callback as Function.
    */
   init: function(reference, callback) {
+    if (typeof reference === 'string') {
+      reference = $('[src="' + reference + '"]').get()[0];
+    }
     this.src = reference.src || reference.href;
     this.load(callback);
   },
@@ -16,9 +19,10 @@ NoCMS.Resource = Class.extend({
    * @param callback as Function.
    */
   load: function(callback) {
+    var Resource = this;
     $.get(this.src, {}, function(data) {
-      this.data = data;
-      callback.call(this);
+      Resource.data = data;
+      if (callback) callback.call(Resource);
     });
   },
 });

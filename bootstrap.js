@@ -1,18 +1,20 @@
 var NoCMS = NoCMS || {};
 (function() {
   var i, j, XHR;
+
   XHR = new XMLHttpRequest();
   XHR.addEventListener('load', function() {
+    var i;
     this.includes = JSON.parse(event.target.response);
     for (i in this.includes) {
-      this.includes[i].JS   = this.includes[i].JS   || [];
-      this.includes[i].Less = this.includes[i].Less || [];
-      this.includes[i].Hbs  = this.includes[i].Hbs  || [];
-      this.includes[i].Md   = this.includes[i].Md  || [];
-      this.includes[i].JS.forEach(getAsyncJS);
-      this.includes[i].Less.forEach(getAsyncLess);
-      this.includes[i].Hbs.forEach(getAsyncHbs);
-      this.includes[i].Md.forEach(getAsyncMd);
+      this.includes[i].js   = this.includes[i].js   || [];
+      this.includes[i].less = this.includes[i].less || [];
+      this.includes[i].hbs  = this.includes[i].hbs  || [];
+      this.includes[i].md   = this.includes[i].md  || [];
+      this.includes[i].js.forEach(getAsyncJS);
+      this.includes[i].less.forEach(getAsyncLess);
+      this.includes[i].hbs.forEach(getAsyncHbs);
+      this.includes[i].md.forEach(getAsyncMd);
     }
   }.bind(this), false);
   XHR.open('get', 'includes.json', true);
@@ -21,7 +23,6 @@ var NoCMS = NoCMS || {};
   function getAsyncFile(path, tag, pathAttribute, type, rel) {
     var element, head = document.getElementsByTagName('head')[0];
     element = document.createElement(tag);
-    element.async = true;
     element[pathAttribute] = path;
     if (type) element.type = type;
     if (rel) element.rel = rel;
