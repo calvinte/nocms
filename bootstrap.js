@@ -1,6 +1,6 @@
 var NoCMS = NoCMS || {};
 (function() {
-  var i, j, XHR;
+  var XHR;
 
   XHR = new XMLHttpRequest();
   XHR.addEventListener('load', function() {
@@ -29,7 +29,7 @@ var NoCMS = NoCMS || {};
     head.appendChild(element);
   }
   function getAsyncJS(path) {
-    getAsyncFile(path, 'script', 'src');
+    require([path]);
   }
   function getAsyncLess(path) {
     getAsyncFile(path, 'link', 'href', 'text/css', 'stylesheet/less');
