@@ -1,6 +1,7 @@
 define(
   [
     'lib/Class/Class',
+    'lib/jQuery/jquery-2.0.3',
   ],
   function(Class) {
     return Class.extend({
@@ -10,10 +11,7 @@ define(
        * @param callback as Function.
        */
       init: function(reference, callback) {
-        if (typeof reference === 'string') {
-          reference = $('[src="' + reference + '"]').get()[0];
-        }
-        this.src = reference.src || reference.href;
+        this.reference = reference
         this.load(callback);
         this._resources.push(this);
       },
@@ -25,7 +23,7 @@ define(
        */
       load: function(callback) {
         var Resource = this;
-        $.get(this.src, {}, function(data) {
+        $.get(this.reference, {}, function(data) {
           Resource.data = data;
           if (callback) callback.call(Resource);
         });

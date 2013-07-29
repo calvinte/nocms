@@ -16,10 +16,17 @@
     "md": []
   },
   "demo": {
-    "js": ["src/demo/demo.js"],
-    "less": ["src/demo/demo.less"],
-    "hbs": ["src/demo/demo.hbs"],
-    "md": ["src/demo/demo.md"]
+    "main": "src/demo/demo.js",
+    "js": [],
+    "less": ["text!src/demo/demo.less"],
+    "hbs": [
+      "text!src/demo/demo.hbs",
+      "text!src/demo/nav/nav.hbs"
+    ],
+    "md": [
+      "text!src/demo/demo.md",
+      "text!src/demo/nav/nav.md"
+    ]
   }
 }
 

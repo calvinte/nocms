@@ -16,3 +16,6 @@
 [submodule "lib/require"]
 	path = lib/require
 	url = https://github.com/jrburke/requirejs
+[submodule "lib/require-text"]
+	path = lib/require-text
+	url = https://github.com/requirejs/text.git

@@ -1,41 +1,26 @@
-(function() {
-  var XHR = new XMLHttpRequest();
-  XHR.addEventListener('load', function() {
-    var i;
-    this.includes = JSON.parse(event.target.response);
-    for (i in this.includes) {
-      this.includes[i].js   = this.includes[i].js   || [];
-      this.includes[i].less = this.includes[i].less || [];
-      this.includes[i].hbs  = this.includes[i].hbs  || [];
-      this.includes[i].md   = this.includes[i].md  || [];
-      this.includes[i].js.forEach(getAsyncJS);
-      this.includes[i].less.forEach(getAsyncLess);
-      this.includes[i].hbs.forEach(getAsyncHbs);
-      this.includes[i].md.forEach(getAsyncMd);
-    }
-  }.bind(this), false);
-  XHR.open('get', 'includes.json', true);
-  XHR.send();
+define('text', ['lib/require-text/text'], function(text) { return text });
+define(function(require) {
+  var i,
+      includes = JSON.parse(require('text!includes.json'))
+      modules = Object.keys(includes);
 
-  function getAsyncFile(path, tag, pathAttribute, type, rel) {
-    var element, head = document.getElementsByTagName('head')[0];
-    element = document.createElement(tag);
-    element[pathAttribute] = path;
-    if (type) element.type = type;
-    if (rel) element.rel = rel;
-    head.appendChild(element);
-  }
-  function getAsyncJS(path) {
-    require([path]);
-  }
-  function getAsyncLess(path) {
-    getAsyncFile(path, 'link', 'href', 'text/css', 'stylesheet/less');
-  }
-  function getAsyncHbs(path) {
-    getAsyncFile(path, 'script', 'src', 'text/x-handlebars-template');
-  }
-  function getAsyncMd(path) {
-    getAsyncFile(path, 'script', 'src', 'text/markdown');
-  }
-})();
+  // Iterate over modules found in includes.
+  (function initiateModule(moduleName) {
+    var moduleIncludes = Array.prototype.concat(
+      includes[moduleName].js   || [],
+      includes[moduleName].less || [],
+      includes[moduleName].hbs  || [],
+      includes[moduleName].md   || []
+    );
+    define(moduleName, moduleIncludes, function() {
+      var deps = {}, i;
+      for (i = 0; i < moduleIncludes.length; i++) {
+        deps[moduleIncludes[i]] = arguments[i]
+      }
+      return deps;
+    });
+    if (includes[moduleName].main) require([includes[moduleName].main]);
+    if (modules[++i]) initiateModule(modules[i]);
+  })(modules[i = 0]);
+});
 

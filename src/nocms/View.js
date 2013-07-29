@@ -1,25 +1,26 @@
 define(
   [
     'lib/Class/Class',
-    'lib/Handlebars/dist/handlebars'
+    'lib/Handlebars/dist/handlebars',
+    'lib/jQuery/jquery-2.0.3.js',
   ],
   function(Class, Handlebars) {
     return Class.extend({
-      init: function(templateResource, target) {
+      init: function(data, target) {
         this._views.push(this);
-        this.setTemplate(templateResource);
+        this.setTemplate(data);
         this.target = target;
       },
-      compile: function() {
+      compile: function(data) {
+        if (data) this.data = data;
         return this.template(this.data);
       },
       render: function(data) {
-        this.data = data;
-        $(this.target).html(this.compile());
+        $(this.target).html(this.compile(data));
       },
-      setTemplate: function(templateResource) {
-        this.templateResource = templateResource;
-        this.template = Handlebars.compile(this.templateResource.data);
+      setTemplate: function(data) {
+        this.data = data;
+        this.template = Handlebars.compile(this.data);
       },
       _views: [],
     });

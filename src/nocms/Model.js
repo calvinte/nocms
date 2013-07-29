@@ -5,16 +5,17 @@ define(
   ],
   function(Class) {
     return Class.extend({
-      init: function(markdownResource) {
+      init: function(data) {
         this._models.push(this);
-        this.setMarkdown(markdownResource);
+        this.setMarkdown(data);
       },
       compile: function() {
         return markdown.renderJsonML(this.JsonML);
       },
-      setMarkdown: function(markdownResource) {
-        this.markdownResource = markdownResource;
-        this.JsonML = markdown.toHTMLTree(markdownResource.data);
+      setMarkdown: function(data) {
+        this.data = data;
+        this.JsonML = markdown.toHTMLTree(this.data);
+        console.log(markdown, this.JsonML);
       },
       _models: [],
     });

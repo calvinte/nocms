@@ -1,12 +1,13 @@
 define(
   [
     'lib/Class/Class',
-    'src/nocms/Model',
-    'src/nocms/View',
   ],
-  function(Class, Model, View) {
+  function(Class) {
     return Class.extend({
-      init: function() {
+      init: function(data, view) {
+        var Controller = this;
+        this.data = data;
+        this.view = view;
         this._controllers.push(this);
       },
       _controllers: [],
