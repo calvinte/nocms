@@ -20,7 +20,6 @@ define(
         main: this.data.main.compile(),
         nav: this.data.nav.compile(),
       });
-      console.log(this.view.data.nav);
     }).call(controller);
   }
 );

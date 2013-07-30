@@ -15,7 +15,6 @@ define(
       setMarkdown: function(data) {
         this.data = data;
         this.JsonML = markdown.toHTMLTree(this.data);
-        console.log(markdown, this.JsonML);
       },
       _models: [],
     });

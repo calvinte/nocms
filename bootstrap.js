@@ -1,4 +1,6 @@
 define('text', ['lib/require-text/text'], function(text) { return text });
+define('css', ['lib/require-css/css'], function(css) { return css });
+define('less', ['lib/require-less/less'], function(less) { return less });
 define(function(require) {
   var i,
       includes = JSON.parse(require('text!includes.json'))
@@ -6,12 +8,12 @@ define(function(require) {
 
   // Iterate over modules found in includes.
   (function initiateModule(moduleName) {
-    var moduleIncludes = Array.prototype.concat(
-      includes[moduleName].js   || [],
-      includes[moduleName].less || [],
-      includes[moduleName].hbs  || [],
-      includes[moduleName].md   || []
-    );
+    var j,
+        keys = Object.keys(includes[moduleName]);
+        moduleIncludes = [];
+    for (j = 0; j < keys.length; j++) {
+      moduleIncludes = moduleIncludes.concat(includes[moduleName][keys[j]]);
+    }
     define(moduleName, moduleIncludes, function() {
       var deps = {}, i;
       for (i = 0; i < moduleIncludes.length; i++) {
