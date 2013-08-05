@@ -15,8 +15,8 @@ define(
         if (data) this.data = data;
         return this.template(this.data);
       },
-      render: function(data) {
-        $(this.target).html(this.compile(data));
+      render: function(target, data) {
+        $(target).html(this.compile(data));
       },
       setTemplate: function(data) {
         this.data = data;
