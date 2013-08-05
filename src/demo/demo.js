@@ -1,12 +1,12 @@
 define(
   [
-    'src/nocms/Controller',
-    'src/nocms/Model',
-    'src/nocms/View',
+    'core/Model',
+    'core/View',
+    'core/Controller',
     'lib/Handlebars/dist/handlebars',
     'demo'
   ],
-  function(Controller, Model, View, Handlebars, demo) {
+  function(Model, View, Controller, Handlebars, demo) {
     var data = {
       main: new Model(demo['text!src/demo/demo.md']),
       nav: new Model(demo['text!src/demo/nav/nav.md']),
