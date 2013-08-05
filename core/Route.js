@@ -4,14 +4,18 @@ define(
   ],
   function(Class) {
     return Class.extend({
-      init: function(path, controller) {
+      init: function(path, title, controller) {
         this.path = path;
+        this.title = title;
         this.controller = controller;
         this.activate();
         window.addEventListener('hashchange', this.activate.bind(this));
       },
       activate: function() {
-        if (this.isActive()) this.controller.render();
+        if (this.isActive()) {
+          this.controller.render();
+          $('title').html(this.title);
+        }
       },
       isActive: function() {
         return this.path === this.currentPath();

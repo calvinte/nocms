@@ -8,22 +8,21 @@ define(
     'demo'
   ],
   function(Model, View, Controller, Route, Handlebars, demo) {
-    var nav, main, other, contact;
-    nav = new Model(demo['text!src/demo/nav/nav.md']).compile();
+    var nav = new Model(demo['text!src/demo/nav/nav.md']).compile();
     Handlebars.registerPartial('navigation', demo['text!src/demo/nav/nav.hbs']);
-    main = new Route('/', new Controller({
+    new Route('/', 'NoCMS Demo', new Controller({
         main: new Model(demo['text!src/demo/demo.md']).compile(),
         nav: nav,
       },
       new View(demo['text!src/demo/demo.hbs']),
       'body'
     ));
-    new Route('/other', new Controller(
+    new Route('/other', 'Other Page', new Controller(
       {nav: nav},
       new View(demo['text!src/demo/other.hbs']),
       'body'
     ));
-    new Route('/contact', new Controller(
+    new Route('/contact', 'Contact Us', new Controller(
       {nav: nav},
       new View(demo['text!src/demo/contact.hbs']),
       'body'
