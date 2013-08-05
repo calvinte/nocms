@@ -1,4 +1,4 @@
-- Home
-- Other page
-- Contact us
+- [Home](/)
+- [Other page](/#!/other)
+- [Contact us](/#!/contact)
 

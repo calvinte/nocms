@@ -12,10 +12,7 @@ define(
       },
       render: function(target) {
         this.target = target || this.target;
-        this.view.render(this.target, {
-          main: this.data.main.compile(),
-          nav: this.data.nav.compile(),
-        });
+        this.view.render(this.target, this.data);
       },
       _controllers: [],
     });
