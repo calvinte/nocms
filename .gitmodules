@@ -19,7 +19,9 @@
 [submodule "lib/require-less"]
 	path = lib/require-less
 	url = https://github.com/guybedford/require-less.git
-
 [submodule "lib/require-css"]
 	path = lib/require-css
 	url = https://github.com/guybedford/require-css.git
+[submodule "lib/jQuery-hashchange"]
+	path = lib/jQuery-hashchange
+	url = git@github.com:calvintennant/jquery-hashchange.git

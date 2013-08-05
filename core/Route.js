@@ -1,15 +1,16 @@
 define(
   [
     'lib/Class/Class',
+    'core',
   ],
-  function(Class) {
+  function(Class, core) {
     return Class.extend({
       init: function(path, title, controller) {
         this.path = path;
         this.title = title;
         this.controller = controller;
-        this.activate();
-        window.addEventListener('hashchange', this.activate.bind(this));
+        $(window).hashchange(this.activate.bind(this));
+        $(window).hashchange();
       },
       activate: function() {
         if (this.isActive()) {
