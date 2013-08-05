@@ -14,17 +14,16 @@
   },
   "demo": {
     "main": "src/demo/demo.js",
-    "js": [],
-    "less": ["less!src/demo/demo.less"],
-    "hbs": [
+    "other": [
+      "less!src/demo/demo.less",
       "text!src/demo/demo.hbs",
       "text!src/demo/other.hbs",
       "text!src/demo/contact.hbs",
-      "text!src/demo/nav/nav.hbs"
-    ],
-    "md": [
+      "text!src/demo/nav/nav.hbs",
       "text!src/demo/demo.md",
-      "text!src/demo/nav/nav.md"
+      "text!src/demo/nav/nav.md",
+      "text!src/demo/customers.hbs",
+      "text!src/demo/customers.json"
     ]
   }
 }

@@ -1,0 +1,23 @@
+{{> navigation}}
+<div class="main">
+  <h1>This page demonstrates the use of JSON data as a model.</h1>
+  <ul>
+    {{#each customers}}
+    <img src="{{picture}}" />
+    <dl>
+      <dt>id:     </dt><dd>{{id}}</dd>
+      <dt>age:    </dt><dd>{{age}}</dd>
+      <dt>name:   </dt><dd>{{name}}</dd>
+      <dt>gender: </dt><dd>{{gender}}</dd>
+      <dt>company:</dt><dd>{{company}}</dd>
+      <dt>email:  </dt><dd>{{email}}</dd>
+      <dt>phone:  </dt><dd>{{phone}}</dd>
+      <dt>address:</dt><dd>{{address}}</dd>
+      <dt>bio:    </dt><dd>{{about}}</dd>
+    </dl>
+    {{/each}}
+    <li>
+    </li>
+  </ul>
+</div>
+
