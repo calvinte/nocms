@@ -1,9 +1,10 @@
 define(
   [
     'lib/Class/Class',
-    'core',
+    'jquery',
+    'lib/jQuery-hashchange/jquery.ba-hashchange.js',
   ],
-  function(Class, core) {
+  function(Class, $) {
     return Class.extend({
       init: function(path, title, controller) {
         this.path = path;

@@ -2,9 +2,9 @@ define(
   [
     'lib/Class/Class',
     'lib/Handlebars/dist/handlebars',
-    'lib/jQuery/jquery-2.0.3.js',
+    'jquery',
   ],
-  function(Class, Handlebars) {
+  function(Class, Handlebars, $) {
     return Class.extend({
       init: function(data, target) {
         this._views.push(this);

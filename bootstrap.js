@@ -1,6 +1,7 @@
 define('text', ['lib/require-text/text'], function(text) { return text });
 define('css', ['lib/require-css/css'], function(css) { return css });
 define('less', ['lib/require-less/less'], function(less) { return less });
+define('jquery', ['lib/jQuery/jquery-2.0.3.js'], function() { return jQuery });
 define(function(require) {
   var i,
       includes = JSON.parse(require('text!includes.json'))
