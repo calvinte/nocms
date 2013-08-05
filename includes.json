@@ -1,15 +1,15 @@
 {
-  "nocms": {
+  "core": {
     "js": [
       "lib/Class/Class.js",
       "lib/Handlebars/dist/handlebars.js",
       "lib/less/dist/less-1.4.1.js",
       "lib/markdown/lib/markdown.js",
       "lib/jQuery/jquery-2.0.3.js",
-      "src/nocms/Resource.js",
-      "src/nocms/Model.js",
-      "src/nocms/View.js",
-      "src/nocms/Controller.js"
+      "core/Resource.js",
+      "core/Model.js",
+      "core/View.js",
+      "core/Controller.js"
     ],
     "less": [],
     "hbs": [],
